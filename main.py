@@ -6,8 +6,8 @@ from constants import constants
 
 
 def calculate_average():
-    input_folder = "assets/la_albufera/input";
-    output_folder = "assets/la_albufera/output";
+    input_folder = "assets/la_vineta/input";
+    output_folder = "assets/la_vineta/output";
 
     for filename in os.listdir(input_folder):
         input_file = os.path.join(input_folder, filename)

@@ -13,9 +13,6 @@ class DataProcessor:
     def load_data(self, sheet_name):
         self.data = pd.read_excel(self.file_path, sheet_name=sheet_name)
 
-    # def sort_data(self, columns):
-    #     self.data = self.data.sort_values(by=columns)
-
     def sort_data(self, columns):
         if not all(col in self.data.columns for col in columns):
             missing_columns = [col for col in columns if col not in self.data.columns]
