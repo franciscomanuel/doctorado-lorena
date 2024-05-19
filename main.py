@@ -6,10 +6,11 @@ from reverse_rows import ReverseRows
 from constants import constants
 
 
-def process_files(input_folder, output_folder, process_function):
+def process_files(input_folder, output_folder, process_function, is_csv = False):
     for filename in os.listdir(input_folder):
         input_file = os.path.join(input_folder, filename)
-        output_file = os.path.join(output_folder, filename)
+        output_file = os.path.join(output_folder, filename.split(".")[0] + ".xlsx") if is_csv else os.path.join(
+            output_folder, filename)
 
         try:
             process_function(input_file, output_file)
@@ -38,14 +39,14 @@ def apply_reverse_row(input_file, output_file):
 
 
 if __name__ == '__main__':
-    input_folder = "assets/foners/input"
-    output_folder = "assets/foners/output"
-    process_files(input_folder, output_folder, calculate_average)
+    # input_folder = "assets/foners/input"
+    # output_folder = "assets/foners/output"
+    # process_files(input_folder, output_folder, calculate_average)
     #
     # input_folder = "assets/csv/input"
     # output_folder = "assets/csv/output"
-    # process_files(input_folder, output_folder, transform_csv_to_xlsx)
+    # process_files(input_folder, output_folder, transform_csv_to_xlsx, True)
 
-    # input_folder = "assets/reverse/input"
-    # output_folder = "assets/reverse/output"
-    # process_files(input_folder, output_folder, apply_reverse_row)
+    input_folder = "assets/reverse/input"
+    output_folder = "assets/reverse/output"
+    process_files(input_folder, output_folder, apply_reverse_row)

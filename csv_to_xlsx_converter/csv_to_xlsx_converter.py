@@ -36,5 +36,5 @@ class CSVtoXLSXConverter:
         df = pd.DataFrame(data)
 
         # Guardar el DataFrame en un archivo Excel
-        print(self.xlsx_file)
         df.to_excel(self.xlsx_file, sheet_name=constants.FIRST_SHEET_NAME, index=False, header=None)
+
